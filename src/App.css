@@ -1,3 +1,28 @@
-.App h1 {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Crete+Round&family=Roboto&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0.5%;
+  padding: 0;
+  list-style-type: none;
+}
+
+body {
+  background-color: #f4f4f4;
+  font-family: 'Roboto', sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2rem;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 2rem;
+  
 }
