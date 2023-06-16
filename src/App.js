@@ -12,17 +12,17 @@ function App() {
         <nav>
           <ul>
             <li>
-              <Link to="/">Book</Link>
+              <Link to="/">BOOKS</Link>
             </li>
             <li>
-              <Link to="/categories">Categories</Link>
+              <Link to="/categories">CATEGORIES</Link>
             </li>
           </ul>
         </nav>
       </header>
       <Routes>
-        <Route path='/' element={<Books />} />
-        <Route path='/categories' element={<Categories />} />
+        <Route path="/" element={<Books />} />
+        <Route path="/categories" element={<Categories />} />
       </Routes>
     </>
   );
