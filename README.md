@@ -75,7 +75,9 @@ To use this web app, open index.html with your web browser.
 
 We plan to add these features in the future:
 
-- coming soon.
+ - User Authentication and Authorization feature
+ - Create the About section
+ - Create the contact section
 
 ## Contributing 🤝
 
