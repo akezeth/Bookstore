@@ -1,10 +1,10 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 const categoriesSlice = createSlice({
-  name: "categories",
-  initialState: "coming soon",
+  name: 'categories',
+  initialState: 'coming soon',
   reducers: {
-    checkStatus: () => "coming soon",
+    checkStatus: () => 'coming soon',
   },
 });
 
