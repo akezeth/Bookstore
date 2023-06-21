@@ -1,23 +1,27 @@
 import { useState } from 'react';
-import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
+import { addBook } from '../redux/books/booksSlice';
 
-function InputBook({ addBook }) {
+function InputBook() {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
+  const [category, setCategory] = useState('');
 
-  const handleChange = (e) => {
-    if (e.target.name === 'title') {
-      setTitle(e.target.value);
-    } else {
-      setAuthor(e.target.value);
-    }
-  };
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addBook(title, author);
+    const newBook = {
+      id: uuidv4(),
+      title,
+      author,
+      category,
+    };
+    dispatch(addBook(newBook));
     setTitle('');
     setAuthor('');
+    setCategory('');
   };
 
   return (
@@ -27,22 +31,25 @@ function InputBook({ addBook }) {
         placeholder="Title..."
         name="title"
         value={title}
-        onChange={handleChange}
+        onChange={(e) => setTitle(e.target.value)}
       />
       <input
         type="text"
         placeholder="Author..."
         name="author"
         value={author}
-        onChange={handleChange}
+        onChange={(e) => setAuthor(e.target.value)}
+      />
+      <input
+        type="text"
+        placeholder="Category..."
+        name="category"
+        value={category}
+        onChange={(e) => setCategory(e.target.value)}
       />
       <button type="submit">ADD BOOK</button>
     </form>
   );
 }
-
-InputBook.propTypes = {
-  addBook: PropTypes.func.isRequired,
-};
 
 export default InputBook;

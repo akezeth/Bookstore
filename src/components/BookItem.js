@@ -11,15 +11,23 @@ function BookItem({ book, delBook }) {
         <span>Author: </span>
         {book.author}
       </div>
-      <button type="button" onClick={() => delBook(book.id)}>Delete Book</button>
+      <div>
+        <span>Category: </span>
+        {book.category}
+      </div>
+      <button type="button" onClick={() => delBook(book.id)}>
+        Delete Book
+      </button>
     </li>
   );
 }
 
 BookItem.propTypes = {
-  book: PropTypes.objectOf(PropTypes.shape({
-    title: PropTypes.string.isRequired,
-  })).isRequired,
+  book: PropTypes.objectOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
 };
 
 BookItem.propTypes = {
