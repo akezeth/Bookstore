@@ -3,53 +3,80 @@ import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import { addBook } from '../redux/books/booksSlice';
 
-function InputBook() {
-  const [title, setTitle] = useState('');
-  const [author, setAuthor] = useState('');
-  const [category, setCategory] = useState('');
-
+const InputBook = () => {
   const dispatch = useDispatch();
+  const [bookData, setBookData] = useState({
+    title: '',
+    author: '',
+    category: '',
+  });
 
-  const handleSubmit = (e) => {
+  const { title, author, category } = bookData;
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setBookData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const addBookHandler = (e) => {
     e.preventDefault();
-    const newBook = {
-      id: uuidv4(),
-      title,
-      author,
-      category,
-    };
-    dispatch(addBook(newBook));
-    setTitle('');
-    setAuthor('');
-    setCategory('');
+
+    if (title !== '' && author !== '' && category !== '') {
+      const newBook = {
+        item_id: uuidv4(),
+        ...bookData,
+      };
+
+      dispatch(addBook(newBook));
+      setBookData({
+        title: '',
+        author: '',
+        category: '',
+      });
+    }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        placeholder="Title..."
-        name="title"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="Author..."
-        name="author"
-        value={author}
-        onChange={(e) => setAuthor(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="Category..."
-        name="category"
-        value={category}
-        onChange={(e) => setCategory(e.target.value)}
-      />
-      <button type="submit">ADD BOOK</button>
-    </form>
+    <>
+      <form>
+        <h3>Add a new book...</h3>
+        <input
+          type="text"
+          name="title"
+          placeholder="Title..."
+          value={title}
+          onChange={handleInputChange}
+        />
+        <input
+          type="text"
+          name="author"
+          placeholder="Author..."
+          value={author}
+          onChange={handleInputChange}
+        />
+        <select name="category" value={category} onChange={handleInputChange}>
+          <option value="">Select Category</option>
+          <option value="Memoir">Memoir</option>
+          <option value="Science">Science</option>
+          <option value="Travel">Travel</option>
+          <option value="Business/Finance">Business/Finance</option>
+          <option value="Poetry">Poetry</option>
+          <option value="Science Fiction">Science Fiction</option>
+          <option value="Horror">Horror</option>
+          <option value="Comedy/Humor">Comedy/Humor</option>
+          <option value="Drama/Play">Drama/Play</option>
+          <option value="Novels/Comics">Novels/Comics</option>
+          <option value="Cookbooks">Cookbooks</option>
+        </select>
+        <button type="button" onClick={addBookHandler}>
+          Add Book
+        </button>
+      </form>
+    </>
   );
-}
+};
 
 export default InputBook;
