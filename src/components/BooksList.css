@@ -1,0 +1,154 @@
+.book-info {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  margin: 3rem auto 1rem;
+  padding: 2rem;
+}
+
+.Book-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.category {
+  color: #515151;
+  font-weight: 600;
+  padding-bottom: 0.4rem;
+  letter-spacing: normal;
+  opacity: 0.7;
+}
+
+.title {
+  color: #121212;
+  font-family: "Roboto Slab", serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+
+.author {
+  color: #4386bf;
+  font-family: "Roboto Slab", serif;
+  font-weight: 300;
+  letter-spacing: normal;
+  font-size: 1.1rem;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btns {
+  color: #4386bf;
+  font-family: "Roboto Slab", serif;
+  font-weight: 300;
+  letter-spacing: normal;
+  font-size: 1.1rem;
+  background-color: transparent;
+  border: none;
+}
+
+.deleteBtn {
+  border-left: 3px solid #e8e8e8;
+  border-right: 3px solid #e8e8e8;
+  padding: 0 1rem;
+  cursor: pointer;
+}
+
+.chapter-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4rem;
+}
+
+.progress-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background:
+    radial-gradient(closest-side, white 79%, transparent 80% 100%),
+    conic-gradient(#0290ff calc(var(--progress-value) * 1%), #e8e8e8 0);
+  animation: progress 2s 1 forwards;
+  position: relative;
+}
+
+.progress-bar::before {
+  content: attr(data-progress) "";
+  counter-reset: percentage;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes progress {
+  to {
+    --progress-value: 60;
+  }
+}
+
+.status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.4rem;
+  border-right: 3px solid #e8e8e8;
+}
+
+.percentage {
+  color: #121212;
+  font-family: "Montserrat", sans-serif;
+  font-size: 2rem;
+  letter-spacing: 2px;
+  margin: 0.063rem 5.75rem 0 0.688rem;
+  font-weight: 400;
+}
+
+.completed {
+  font-size: 1rem;
+  letter-spacing: 2px;
+  opacity: 0.7;
+}
+
+.chapter {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.chapter h3 {
+  color: #121212;
+  font-family: "Roboto Slab", serif;
+  font-weight: 600;
+  opacity: 0.7;
+}
+
+.chapter button {
+  background: #0290ff;
+  font-family: "Roboto Slab", serif;
+  color: #fff;
+  letter-spacing: 1px;
+  width: 100%;
+  padding: 1rem 2rem;
+  border-radius: 0.3rem;
+  border: 1.5px solid #4aa5eb;
+}
+
+.chapter button:hover {
+  background-color: #4aa5eb;
+  cursor: pointer;
+}
